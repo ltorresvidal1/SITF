@@ -8,8 +8,9 @@
 
     <link href="/assets/css/vendor.min.css" rel="stylesheet" />
     <link href="/assets/css/app.min.css" rel="stylesheet" />
-    @notifyCss
-        <style>
+    <link rel="stylesheet" type="text/css" href="/vendor/mckenziearts/css/notify.css"/>   
+
+    <style>
 
 body {
   height: 100%;
@@ -37,7 +38,7 @@ body {
      <script src="/assets/js/vendor.min.js"></script>
     <script src="/assets/js/app.min.js"></script>
     <x:notify-messages />
-    @notifyJs
+    <script type="text/javascript" src="/vendor/mckenziearts/js/notify.js"></script>
 
 </body>
 </html>
