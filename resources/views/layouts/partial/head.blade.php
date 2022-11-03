@@ -7,6 +7,7 @@
         <link href="/assets/css/vendor.min.css" rel="stylesheet" />
         <link href="/assets/css/app.min.css" rel="stylesheet" />
         <link href="/assets/js/plugins/select2/select2.min.css"  rel="stylesheet" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         @stack('css')
         @notifyCss
     </head>
