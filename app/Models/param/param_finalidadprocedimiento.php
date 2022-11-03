@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models\param;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class param_finalidadprocedimiento extends Model
+{
+    use HasFactory;
+
+    protected $table = 'param_finalidad_procedimiento';
+
+    protected $fillable = [
+        'descripcion',
+        'tipofinalidad',
+        'edadminima',
+        'edadmaxima',
+        'edadminimadias',
+        'edadmaximadia',
+        'sexo',
+        'tipousaurio',
+        'created_at',
+        'updated_at'
+    ];
+}

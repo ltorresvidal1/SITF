@@ -1,0 +1,44 @@
+{
+    "name": "php-flasher/flasher-sweetalert-laravel",
+    "description": "PHP Flasher Laravel adapter for Sweet Alert 2",
+    "type": "library",
+    "keywords": ["yoeunes", "notify", "php", "laravel", "symfony", "Lumen", "notifications", "messages", "alerts", "pnotify", "toastr ", "bundle", "flex", "sweet alert"],
+    "homepage": "https://php-flasher.io",
+    "authors": [
+        {
+            "name": "Younes KHOUBZA",
+            "email": "younes.khoubza@gmail.com",
+            "homepage": "https://www.linkedin.com/in/younes-khoubza",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3",
+        "php-flasher/flasher-laravel": "^1.7",
+        "php-flasher/flasher-sweetalert": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Flasher\\SweetAlert\\Laravel\\": ""
+        },
+        "files": [
+            "sweetalert.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Flasher\\SweetAlert\\Laravel\\FlasherSweetAlertServiceProvider"
+            ],
+            "aliases": {
+                "SweetAlert": "Flasher\\SweetAlert\\Laravel\\Facade\\SweetAlert"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
