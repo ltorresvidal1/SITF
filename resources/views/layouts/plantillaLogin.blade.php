@@ -8,7 +8,7 @@
 
     <link href="/assets/css/vendor.min.css" rel="stylesheet" />
     <link href="/assets/css/app.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="/vendor/mckenziearts/css/notify.css"/>   
+    <link href="/assets/notify/css/notify.css" rel="stylesheet"/>   
 
     <style>
 
@@ -38,7 +38,7 @@ body {
      <script src="/assets/js/vendor.min.js"></script>
     <script src="/assets/js/app.min.js"></script>
     <x:notify-messages />
-    <script type="text/javascript" src="/vendor/mckenziearts/js/notify.js"></script>
-
+    <script type="text/javascript" src="/assets/notify/js/notify.js"></script>
+  
 </body>
 </html>

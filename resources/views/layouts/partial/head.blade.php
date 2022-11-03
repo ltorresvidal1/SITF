@@ -8,8 +8,7 @@
         <link href="/assets/css/app.min.css" rel="stylesheet" />
         <link href="/assets/js/plugins/select2/select2.min.css"  rel="stylesheet" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-        <link rel="stylesheet" type="text/css" href="/vendor/mckenziearts/css/notify.css"/>   
-    
+        <link href="/assets/notify/css/notify.css" rel="stylesheet"/>   
         @stack('css')
       
     </head>

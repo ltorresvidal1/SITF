@@ -8,5 +8,5 @@
 
 <!-- ================== END BASE JS ================== -->
 <x:notify-messages />
-<script type="text/javascript" src="/vendor/mckenziearts/js/notify.js"></script>
+<script type="text/javascript" src="/assets/notify/js/notify.js"></script>
 @stack('scripts')
