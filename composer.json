@@ -18,6 +18,7 @@
         "php-flasher/flasher-sweetalert-laravel": "^1.7",
         "php-flasher/flasher-toastr-laravel": "^1.7",
         "phpoffice/phpspreadsheet": "^1.24",
+        "tapp/laravel-uppy-s3-multipart-upload": "^0.5.1",
         "yajra/laravel-datatables-oracle": "^10.1"
     },
     "require-dev": {

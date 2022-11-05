@@ -34,9 +34,9 @@ use App\Http\Controllers\informes\InformesController;
 
 
 
-Route::get('/',[LoginController::class,'index'])->name('login');
-Route::get('/login',[LoginController::class,'index'])->name('login');
-Route::post('/login',[LoginController::class,'store'])->name('login');
+Route::get('/',[LoginController::class,'index'])->name('logininicial');
+Route::get('/login',[LoginController::class,'index'])->name('login.index');
+Route::post('/login',[LoginController::class,'store'])->name('login.store');
 Route::Post('/logout',[LogoutController::class,'store'])->name('logout');
 
 Route::Post('/imagenes',[ImagenController::class,'store'])->name('imagenes.store');
@@ -88,10 +88,8 @@ Route::get('/auditarfacturas/create',[AuditarfacturasController::class,'create']
 
 Route::get('/informes',[InformesController::class,'index'])->name('informes.index');
 
-
-
-
-Route::Post('/cargarrips/{clientes}',[cargarripsController::class,'store'])->name('cargarrips.store');
+Route::post('/cargarrips',[cargarripsController::class,'store'])->name('cargarrips.store');
+//Route::post('/cargarrips/{clientes}',[cargarripsController::class,'store'])->name('cargarrips.store');
 /*Route::get('/fincas/create',[Sa_usuariosController::class,'create'])->name('sa_usuarios.create');
 Route::post('/fincas',[Sa_usuariosController::class,'store'])->name('sa_usuarios.store');
 Route::get('fincas/{usuario}/edit',[Sa_usuariosController::class,'edit'])->name('sa_usuarios.edit');

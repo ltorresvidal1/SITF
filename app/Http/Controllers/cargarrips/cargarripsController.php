@@ -20,19 +20,22 @@ class cargarripsController extends Controller
     $this->middleware('auth');
   }
 
-    public function store(Request $request,Clientes $clientes,ToastrFactory $msn,SweetAlertFactory $msnerror){
+    public function store(Request $request){
     
+
 
      
         $user = Auth::user();
         $cu=Usuariosclientes::where('user_id','=',$user->id)->first();
         $carpeta =  $request->temporal;
+        $clientes=Clientes::where('id','=',$cu->cliente_id)->first();
       
-
        $listaarchivos=[];
        $errores=[];
        $aminimo=0;
 
+
+    
         foreach ($request->file('file') as $key => $value) {
 
            $tipo=substr($value->getClientOriginalName(), 0,2);
@@ -53,15 +56,53 @@ class cargarripsController extends Controller
         if($aminimo>=31){
 
 
-
-
-
         foreach ($request->file('file') as $key => $value) {
 
 
           $tipo=substr($value->getClientOriginalName(), 0,2);
           $value->storeAs('/uploads/rips/'. $clientes->id.'/'.$carpeta.'/',$value->getClientOriginalName());
           $file = storage_path('app/uploads/rips/'. $clientes->id.'/'.$carpeta.'/'.$value->getClientOriginalName());
+  
+          if($tipo=="US"){
+             $query = 'call "CopiaRips_US"('."'".$file."','".$carpeta."'".','.$clientes->id.','.$user->id.');';
+             DB::getPdo()->exec($query);     
+           //return response()->json($query);
+           //  DB::select('call CopiaRips_US('."'".$file."','".$carpeta."'".','.$clientes->id.','.$user->id.');');
+          }
+        /* 
+        if($tipo=="AC"){
+            $query = 'call "CopiaRips_AC"('."'".$file."','".$carpeta."'".','.$clientes->id.','.$user->id.');';
+            DB::getPdo()->exec($query);     
+          }
+*/
+        }
+
+       ripsMaestros::create([
+          'ips_id'=>$clientes->id,
+          'user_id'=>$user->id,
+          'codigo_rips'=>$carpeta ,
+          'archivos'=>'ac,cd',
+          'periodo'=>'08',
+          'ano'=>'2022',
+          'fecharegistro'=>now(),
+          'idestado'=>'1'
+        ]);
+   
+    //    validacionrips::dispatch($carpeta);
+  
+        }
+      
+   
+          return response()->json($errores);
+
+
+
+    }
+}
+
+
+
+
       /*
           if($tipo=="CT"){
             $query = 'call "CopiaRips_CT"('."'".$file."','".$carpeta."'".','.$clientes->id.','.$user->id.');';
@@ -70,16 +111,8 @@ class cargarripsController extends Controller
           if($tipo=="AF"){
             $query = 'call "CopiaRips_AF"('."'".$file."','".$carpeta."'".','.$clientes->id.','.$user->id.');';
              DB::getPdo()->exec($query);     
-          }*/
-          if($tipo=="US"){
-            $query = 'call "CopiaRips_US"('."'".$file."','".$carpeta."'".','.$clientes->id.','.$user->id.');';
-             DB::getPdo()->exec($query);     
           }
-          if($tipo=="AC"){
-            $query = 'call "CopiaRips_AC"('."'".$file."','".$carpeta."'".','.$clientes->id.','.$user->id.');';
-            DB::getPdo()->exec($query);     
-          }
-       /*   if($tipo=="AP"){
+        if($tipo=="AP"){
             $query = 'call "CopiaRips_AP"('."'".$file."','".$carpeta."'".','.$clientes->id.','.$user->id.');';
             DB::getPdo()->exec($query);     
           }
@@ -106,31 +139,6 @@ class cargarripsController extends Controller
 */
 
 
-
-        }
-
-        ripsMaestros::create([
-          'ips_id'=>$clientes->id,
-          'user_id'=>$user->id,
-          'codigo_rips'=>$carpeta ,
-          'archivos'=>'ac,cd',
-          'periodo'=>'08',
-          'ano'=>'2022',
-          'fecharegistro'=>now(),
-          'idestado'=>'1'
-        ]);
-   
-        validacionrips::dispatch($carpeta);
-
-        }
-   
-        
-          return response()->json($errores);
-
-
-
-    }
-}
 
 
 /*

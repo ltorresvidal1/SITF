@@ -63,9 +63,9 @@
     
 
 
-            <form action="{{route('cargarrips.store',$clientes)}}" method="POST" enctype="multipart/form-data" class="dropzone dropzone-nk needsclick" id="dropzone">
+            <form action="{{route('cargarrips.store')}}" method="POST" enctype="multipart/form-data" class="dropzone dropzone-nk needsclick" id="dropzone">
                 @csrf
-                
+                @method('POST')
                 <div id="upload-label" style="width: 200px;" class="dz-clickable center">
                   <img src="/assets/img/paginas/upload-cloud1.svg"  id="imagencargar" onmouseOver="Imagen1();" onmouseOut="Imagen2();"  onClick="Limpirar();"/> 
                  </div>
@@ -581,7 +581,7 @@ var previewNode = document.querySelector("#zdrop-template");
                 $("#boton_ok").attr("style","display:none;");
               }
               
-                console.log(contador);
+                console.log(response);
               
                 
   
