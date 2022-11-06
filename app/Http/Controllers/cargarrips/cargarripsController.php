@@ -65,8 +65,8 @@ class cargarripsController extends Controller
   
           if($tipo=="US"){
              $query = 'call "CopiaRips_US"('."'".$file."','".$carpeta."'".','.$clientes->id.','.$user->id.');';
-             DB::getPdo()->exec($query);     
-           //return response()->json($query);
+            // DB::getPdo()->exec($query);     
+            return response()->json($query);
            //  DB::select('call CopiaRips_US('."'".$file."','".$carpeta."'".','.$clientes->id.','.$user->id.');');
           }
         /* 
